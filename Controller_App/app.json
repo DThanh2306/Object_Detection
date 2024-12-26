@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "scheme": "acme",
+    "plugins": [
+      "expo-router",
+      "expo-font"
+    ],
+    "newArchEnabled": true,
+    "name": "Controller_App",
+    "slug": "Controller_App"
+  }
+}
