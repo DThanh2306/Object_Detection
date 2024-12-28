@@ -4,17 +4,25 @@ import { TouchableOpacity, SafeAreaView, Text, StyleSheet } from "react-native";
 const Home = () => {
   const [output, setOutput] = useState("");
 
+  const commands = ["cd ~/raspberry_pi_server", "python test.py"];
+
   const handlePress = () => {
     fetch("http://192.168.1.113:3000/run-command", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ command: 'echo "Hello World"' }),
+      body: JSON.stringify({ commands: commands }),
     })
       .then((response) => response.json())
       .then((data) => {
-        setOutput(data.output);
+        // Handling the response data
+        if (Array.isArray(data)) {
+          // Join all output/error into a single string
+          setOutput(data.map((item) => item.output || item.error).join("\n"));
+        } else {
+          setOutput(data.output || data.error);
+        }
       })
       .catch((error) => {
         console.error(error);
