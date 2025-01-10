@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "scheme": "acme",
+    "plugins": [
+      "expo-router"
+    ],
+    "name": "RPi_Controller",
+    "slug": "RPi_Controller"
+  }
+}
