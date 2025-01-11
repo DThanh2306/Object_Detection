@@ -5,6 +5,10 @@
       "expo-router"
     ],
     "name": "RPi_Controller",
-    "slug": "RPi_Controller"
+    "slug": "RPi_Controller",
+    "newArchEnabled": true,
+    "android": {
+      "package": "com.thaichiro123ct.RPi_Controller"
+    }
   }
 }

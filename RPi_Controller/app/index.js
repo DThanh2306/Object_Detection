@@ -8,21 +8,24 @@ import {
 } from "react-native";
 import { Stack } from "expo-router";
 import { useState } from "react";
+import * as Speech from "expo-speech";
 
 import styles from "../styles/Home.styles";
 
 const Home = () => {
-  const [message, setMessage] = useState("Welcome to Raspberry Pi Controller!");
-  const [pressState, setPressState] = useState(false);
+  const [message, setMessage] = useState("");
+  const [pressState, setPressState] = useState(true);
 
   const handlePress = () => {
-    setPressState(!pressState);
+    Speech.speak("Hello, this is a text-to-speech example!");
 
     if (pressState) {
-      setMessage("You have pressed the button");
+      setMessage("The system has been started!");
     } else {
-      setMessage("Welcome to Raspberry Pi Controller!");
+      setMessage("The system has been stopped!");
     }
+
+    setPressState(!pressState);
   };
 
   return (
